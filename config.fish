@@ -4,14 +4,14 @@ set computer_name (hostname -s)
 
 # My bin directory is mostly Python scripts, mostly stored on github
 maybe_prepend_to_path $HOME/bin
-#set --export PATH $HOME/bin $PATH
 
 # I expect local/bin to be locally compiled programs
 if test -d $HOME/local/bin
     maybe_prepend_to_path $HOME/local/bin
-    #set --export PATH $HOME/local/bin $PATH
     # and those same programs may provide man pages
-    set --export MANPATH $HOME/local/man $MANPATH
+    if not contains $HOME/local/man $MANPATH
+        set --export MANPATH $HOME/local/man $MANPATH
+    end
 end
 
 set --export EDITOR (which vim)

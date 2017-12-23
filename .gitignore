@@ -1,0 +1,10 @@
+# Editor artefacts
+*~
+*.swo
+*.swp
+
+# The fish-supplied setup file
+fishd.*
+
+# Fish functions we should ignore
+functions/fish_setup_local

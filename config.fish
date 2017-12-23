@@ -3,11 +3,13 @@
 set computer_name (hostname -s)
 
 # My bin directory is mostly Python scripts, mostly stored on github
-set --export PATH $HOME/bin $PATH
+maybe_prepend_to_path $HOME/bin
+#set --export PATH $HOME/bin $PATH
 
 # I expect local/bin to be locally compiled programs
 if test -d $HOME/local/bin
-    set --export PATH $HOME/local/bin $PATH
+    maybe_prepend_to_path $HOME/local/bin
+    #set --export PATH $HOME/local/bin $PATH
     # and those same programs may provide man pages
     set --export MANPATH $HOME/local/man $MANPATH
 end

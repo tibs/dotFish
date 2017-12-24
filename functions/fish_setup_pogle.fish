@@ -8,11 +8,11 @@ function fish_setup_pogle --description "Fish setup for my laptop, pogle"
         set --export PATH $HOME/Library/Haskell/bin $PATH
     end
 
-    alias mq="mplayer -nosound -ontop"
-    alias mpvq="mpv --no-audio --ontop"
-    alias m2="mpv --no-audio --ontop"
+    alias mq "mplayer -nosound -ontop"
+    alias mpvq "mpv --no-audio --ontop"
+    alias m2 "mpv --no-audio --ontop"
 
-    alias lsbig='ls -lhSr'
+    alias lsbig "ls -lhSr"
     
 end
 

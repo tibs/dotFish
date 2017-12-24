@@ -77,6 +77,11 @@ function set_my_fish_colours --description "Set up my own colour scheme"
     set fish_color_escape "magenta --bold"
     set fish_pager_color_description "b3a06d magenta"
 
+    # ``dirh`` uses this to highlight the current directory. It defaults to
+    # just ``--bold``, which isn't terribly obvious. For some reasons, setting
+    # this value in double quotes doesn't work.
+    set fish_color_history_current magenta --bold
+
     # Anything else can be left to another time...
 end
 

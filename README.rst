@@ -48,3 +48,15 @@ remind me about them.
 
 .. _fisherman: https://github.com/fisherman/fisherman
 .. _oh-my-fish: https://github.com/oh-my-fish/oh-my-fish
+
+Other useful links:
+
+* `Release notes`_
+* `Milestone 3.0`_ - proposed changes to fish for version 3.0. These may break
+  compatibiity.
+* `Let's create fish 3.0 (our second major release)`_ explains a lot of the
+  thinking behind that.
+
+.. _`Release notes`: https://fishshell.com/release_notes.html
+.. _`Milestone 3.0`: https://github.com/fish-shell/fish-shell/milestone/18
+.. _`Let's create fish 3.0 (our second major release)`: https://github.com/fish-shell/fish-shell/issues/4154

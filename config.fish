@@ -26,8 +26,10 @@ set_my_fish_colours
 set -g fish_key_bindings fish_vi_key_bindings
 
 # Things which are not suitable for putting on github
-if functions --query fish_setup_local
-    fish_setup_local
+# (note - the .gitignore file will ignore any functions whose names start
+# with an underscore)
+if functions --query _fish_setup_local
+    _fish_setup_local
 end
 
 # Things which are specific to this computer

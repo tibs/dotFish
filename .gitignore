@@ -7,4 +7,4 @@
 fishd.*
 
 # Fish functions we should ignore
-functions/fish_setup_local
+functions/_*

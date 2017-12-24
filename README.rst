@@ -40,8 +40,12 @@ Useful other things to remember:
   leads to iTerm2 giving an irritating prompt when starting up a new terminal
   with fish as its shell. This should be fixed sometime in the new year.
 
+* Completion for pipenv_ is included (so I rather assume ``pip3 install
+  pipenv``)
+
 .. _fish: https://fishshell.com/
 .. _`issue 4521`: https://github.com/fish-shell/fish-shell/issues/4521
+.. _pipenv: https://github.com/pypa/pipenv
 
 I'm not yet using fisherman_ or oh-my-fish_ (omf), so these links are here to
 remind me about them.

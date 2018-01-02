@@ -6,5 +6,5 @@
 # The fish-supplied setup file
 fishd.*
 
-# Fish functions we should ignore
+# Fish functions we should ignore - anything starting with underscore
 functions/_*

@@ -14,6 +14,11 @@ if test -d $HOME/local/bin
     end
 end
 
+# Allow defining local-only fish functions in a different directory
+if test -d $HOME/.config/fish/functions/_local
+    set -g -x fish_function_path $HOME/.config/fish/functions/_local $fish_function_path
+end
+
 set --export EDITOR (which vim)
 
 # Set the colours that I need to alter to get a good result against my

@@ -72,7 +72,7 @@ function set_my_fish_colours --description "Set up my own colour scheme"
     # a suggested sequence - for instance if I've type "echo $PA" then the
     # "$PA" will be in that color - presumably as an "operator" to the echo
     # command. As such, it needs to be quite visible!
-    set fish_color_escape magenta
+    set fish_color_operator magenta
     # Following the same reasoning as to replacement colours:
     set fish_color_escape "magenta --bold"
     set fish_pager_color_description "b3a06d magenta"

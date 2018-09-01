@@ -5,14 +5,17 @@ set computer_name (hostname -s)
 # My bin directory is mostly Python scripts, mostly stored on github
 maybe_prepend_to_path $HOME/bin
 
-# Some things (e.g., RabbitMQ) live in /usr/local/sbin, which is not on the
-# PATH by default
-maybe_append_to_path /usr/local/sbin
+# Some things live in /usr/local/sbin, which is not on the PATH by default
+if test -d /usr/local/sbin
+    maybe_append_to_path /usr/local/sbin
+end
 
 # If I've done "brew install coreutils" then it installs things on the PATH
 # with 'g' prefixes. To make them available under the normal names it suggests
 # prepending the following to the path:
-maybe_prepend_to_path /usr/local/opt/coreutils/libexec/gnubin
+if test -d /usr/local/opt/coreutils/libexec/gnubin
+    maybe_prepend_to_path /usr/local/opt/coreutils/libexec/gnubin
+end
 
 # I expect local/bin to be locally compiled programs
 if test -d $HOME/local/bin

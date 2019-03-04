@@ -5,6 +5,18 @@ set computer_name (hostname -s)
 # My bin directory is mostly Python scripts, mostly stored on github
 maybe_prepend_to_path $HOME/bin
 
+# Some things live in /usr/local/sbin, which is not on the PATH by default
+if test -d /usr/local/sbin
+    maybe_append_to_path /usr/local/sbin
+end
+
+# If I've done "brew install coreutils" then it installs things on the PATH
+# with 'g' prefixes. To make them available under the normal names it suggests
+# prepending the following to the path:
+if test -d /usr/local/opt/coreutils/libexec/gnubin
+    maybe_prepend_to_path /usr/local/opt/coreutils/libexec/gnubin
+end
+
 # I expect local/bin to be locally compiled programs
 if test -d $HOME/local/bin
     maybe_prepend_to_path $HOME/local/bin
@@ -12,6 +24,11 @@ if test -d $HOME/local/bin
     if not contains $HOME/local/man $MANPATH
         set --export MANPATH $HOME/local/man $MANPATH
     end
+end
+
+# Allow defining local-only fish functions in a different directory
+if test -d $HOME/.config/fish/functions/_local
+    set -g -x fish_function_path $HOME/.config/fish/functions/_local $fish_function_path
 end
 
 set --export EDITOR (which vim)

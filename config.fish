@@ -16,6 +16,10 @@ end
 
 set --export EDITOR (which vim)
 
+if test -x /usr/local/bin/most
+    set --export PAGER /usr/local/bin/most
+end
+
 # Set the colours that I need to alter to get a good result against my
 # particular terminal background
 set_my_fish_colours
@@ -36,5 +40,9 @@ end
 if functions --query fish_setup_$computer_name
     eval fish_setup_$computer_name
 end
+
+# Where to find MacVim
+# This is used by ~/bin/mvim and ~/bin/gvim
+set -g -x VIM_APP_DIR /Applications/Extras
 
 # vim: set tabstop=8 softtabstop=4 shiftwidth=4 expandtab:

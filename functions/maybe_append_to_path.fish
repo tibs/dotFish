@@ -4,7 +4,7 @@ function maybe_append_to_path -a item --description="Append ITEM to $PATH if it'
     end
 
     if not contains $item $PATH
-        set --export PATH $PATH $item
+        set --export --global PATH $PATH $item
     end
 end
 

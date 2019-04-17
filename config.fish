@@ -14,18 +14,25 @@ maybe_append_to_path /usr/local/sbin
 # prepending the following to the path:
 maybe_prepend_to_path /usr/local/opt/coreutils/libexec/gnubin
 
+# Use the ruby provided by homebrew, as it's substantially more up-to-date
+# than the default
+set -g fish_user_paths "/usr/local/opt/ruby/bin" $fish_user_paths
+
 # I expect local/bin to be locally compiled programs
 if test -d $HOME/local/bin
     maybe_prepend_to_path $HOME/local/bin
     # and those same programs may provide man pages
     if not contains $HOME/local/man $MANPATH
-        set --export MANPATH $HOME/local/man $MANPATH
+        set --export --global MANPATH $HOME/local/man $MANPATH
     end
 end
 
 # Allow defining local-only fish functions in a different directory
-if test -d $HOME/.config/fish/functions/_local
-    set -g -x fish_function_path $HOME/.config/fish/functions/_local $fish_function_path
+set _local_function_dir $HOME/.config/fish/functions/_local
+if test -d $_local_function_dir
+    if not contains $fish_function_path $_local_function_dir
+        set --export --global fish_function_path $_local_function_dir $fish_function_path
+    end
 end
 
 set --export EDITOR (which vim)

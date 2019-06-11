@@ -61,4 +61,8 @@ if functions --query fish_setup_$computer_name
     eval fish_setup_$computer_name
 end
 
+# Set up rbenv (Ruby) as suggested by ``rbenv init``
+# (see https://github.com/rbenv/rbenv)
+status --is-interactive; and source (rbenv init -|psub)
+
 # vim: set tabstop=8 softtabstop=4 shiftwidth=4 expandtab:

@@ -30,6 +30,11 @@ if test -d $HOME/local/bin
     end
 end
 
+# Have we got rust?
+if test -d $HOME/.cargo
+    maybe_prepend_to_path $HOME/.cargo/bin
+end
+
 # Allow defining local-only fish functions in a different directory
 set _local_function_dir $HOME/.config/fish/functions/_local
 if test -d $_local_function_dir

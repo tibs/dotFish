@@ -31,7 +31,10 @@ if test -d $HOME/.config/fish/functions/_local
     set -g -x fish_function_path $HOME/.config/fish/functions/_local $fish_function_path
 end
 
+# Experimentally, use Emacs for all-the-things
 set --export EDITOR (which vim)
+#set --export EDITOR 'emacsclient --alternate-editor="" -nw'
+#set --export VISUAL 'emacsclient --alternate-editor="" --create-frame emacs'
 
 if test -x /usr/local/bin/most
     set --export PAGER /usr/local/bin/most

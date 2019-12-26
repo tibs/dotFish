@@ -14,3 +14,6 @@ _local
 
 # And the fundle directory is (should be) a link to _local/fundle
 fundle
+
+# The variables should be set by my configuration
+fish_variables

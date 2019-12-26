@@ -64,3 +64,7 @@ Other useful links:
 .. _`Release notes`: https://fishshell.com/release_notes.html
 .. _`Milestone 3.0`: https://github.com/fish-shell/fish-shell/milestone/18
 .. _`Let's create fish 3.0 (our second major release)`: https://github.com/fish-shell/fish-shell/issues/4154
+
+Support for kubectl
+~~~~~~~~~~~~~~~~~~~
+See https://github.com/evanlucas/fish-kubectl-completions

@@ -4,7 +4,7 @@ function maybe_prepend_to_path -a item --description="Prepend ITEM to $PATH if i
     end
 
     if not contains $item $PATH
-        set --export PATH $item $PATH
+        set --export --global PATH $item $PATH
     end
 end
 

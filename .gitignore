@@ -6,5 +6,11 @@
 # The fish-supplied setup file
 fishd.*
 
-# We should ignore any fish functions in an _local directory
+# We should ignore any fish functions in a _local directory
 functions/_local
+
+# Or indeed a _local directory
+_local
+
+# And the fundle directory is (should be) a link to _local/fundle
+fundle

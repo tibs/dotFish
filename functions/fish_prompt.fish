@@ -10,10 +10,8 @@ function fish_prompt --description 'Write out the prompt'
     # It would be more elegant to use the fish-defined colour variables,
     # instead of setting explicit colours, but this is simpler, and maps
     # more closely to what I used to do in bash.
-    set_color normal
-    echo -n -s "$USER" @
     set_color red
-    echo -n (prompt_hostname)
+    echo -n -s "$USER"
     set_color normal
     echo -n -s ' ' (prompt_pwd)
     set_color green

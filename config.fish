@@ -43,7 +43,14 @@ if test -d $_local_function_dir
     end
 end
 
+# Experimentally, use Emacs for all-the-things
 set --export EDITOR (which vim)
+#set --export EDITOR 'emacsclient --alternate-editor="" -nw'
+#set --export VISUAL 'emacsclient --alternate-editor="" --create-frame emacs'
+
+if test -x /usr/local/bin/most
+    set --export PAGER /usr/local/bin/most
+end
 
 # Set the colours that I need to alter to get a good result against my
 # particular terminal background
@@ -65,5 +72,9 @@ end
 if functions --query fish_setup_$computer_name
     eval fish_setup_$computer_name
 end
+
+# Where to find MacVim
+# This is used by ~/bin/mvim and ~/bin/gvim
+set -g -x VIM_APP_DIR /Applications/Extras
 
 # vim: set tabstop=8 softtabstop=4 shiftwidth=4 expandtab:

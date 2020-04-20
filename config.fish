@@ -77,4 +77,9 @@ end
 # This is used by ~/bin/mvim and ~/bin/gvim
 set -g -x VIM_APP_DIR /Applications/Extras
 
+# Set up Ruby via rbenv, if I've got it on this machine
+if test -d $HOME/.rbenv
+    status --is-interactive; and source (rbenv init -|psub)
+end
+
 # vim: set tabstop=8 softtabstop=4 shiftwidth=4 expandtab:

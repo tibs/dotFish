@@ -1,0 +1,75 @@
+# For reference:
+#
+# For iTerm, go to Preferences / Profiles / <the appropriate profile> / Text
+# and select the font to use for Non-ASCII Font
+# Choosing Powerline Symbols in Medium 12 works
+#
+# Install with:
+#
+#   brew tap homebrew/cask-fonts
+#   brew cask install font-powerline-symbols
+#
+# I'm also trying:
+#
+#   brew cask install font-awesome-terminal-fonts - this works OK as well
+#
+#   brew cask install font-hack-nerd-font - hmm, can't see this in iTerm2
+#
+# * The standard terminal colors are: black, red, green, blue, yellow, purple, cyan, white.
+# * Prefix with bright- to get the bright version (e.g. bright-white).
+# * Modify with any of bold, underline, dimmed
+# * Can also specify #<six-digit-hex>   https://www.w3schools.com/colors/colors_hexadecimal.asp
+# * Can also specify 0-255 (8-bit ANSI) https://i.stack.imgur.com/KTSQa.png
+# * fg:<color> and bg:<color> aren't useful yet
+#
+# My standard terminal has a "parchment" background colour, so yellows don't
+# work very well.
+
+# Don't print a new line at the start of the prompt
+add_newline = false
+
+# Actually, with the prompt being longer, I do want a newline before the $
+# [line_break]
+# disabled = true
+
+[character]
+symbol = "$"                   # character before user input - default is ">"
+vicmd_symbol = "N"             # ditto if in vi Normal mode
+style_success = "black"        # default is "bold green"
+style_failure = "bold red"     # this is the default
+
+[cmd_duration]
+style = "bold blue"            # default is "bold yellow"
+
+[directory]
+fish_style_pwd_dir_length = 1  # Try to emulate fish's directory truncation
+style = "black"                # default is "bold cyan"
+
+[git_branch]
+style = "green"                # default is "bold purple"
+symbol = ""                    # default is " ", but I get the word "on" for free anyway
+
+[git_state]
+style = "bold green"           # default is "bold yellow" - not good on my terminal
+
+[git_status]
+show_sync_count = true         # experimentally
+# Alternative representation
+deleted = "d"                  # default is "✘"
+modified = "m"                 # default is "!"
+stashed = "s"                  # default is "$"
+untracked = "u"                # default is "?"
+# Do I want these specifics?
+conflicted_count.enabled = true
+deleted_count.enabled = true
+modified_count.enabled = true
+renamed_count.enabled = true
+stashed_count.enabled = true
+untracked_count.enabled = true
+
+# Disable the package module, hiding it from the prompt completely
+[package]
+disabled = true
+
+[python]
+style = "red"                  # default is bold yellow

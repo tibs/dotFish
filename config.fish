@@ -78,8 +78,36 @@ end
 set -g -x VIM_APP_DIR /Applications/Extras
 
 # Set up Ruby via rbenv, if I've got it on this machine
+#
+# At time of writing:
+#
+#     $ rbenv init -
+#     set -gx PATH '/Users/tonyibbs/.rbenv/shims' $PATH
+#     set -gx RBENV_SHELL fish
+#     source '/usr/local/Cellar/rbenv/1.1.2/libexec/../completions/rbenv.fish'
+#     command rbenv rehash 2>/dev/null
+#     function rbenv
+#       set command $argv[1]
+#       set -e argv[1]
+#
+#       switch "$command"
+#       case rehash shell
+#         source (rbenv "sh-$command" $argv|psub)
+#       case '*'
+#         command rbenv "$command" $argv
+#       end
+#     end
+#
+# NB for bash it wants me to do ``echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile``
+#
 if test -d $HOME/.rbenv
     status --is-interactive; and source (rbenv init -|psub)
+end
+
+# Experimentally, use starship prompt
+
+if test -x /usr/local/bin/starship
+    starship init fish | source
 end
 
 # vim: set tabstop=8 softtabstop=4 shiftwidth=4 expandtab:

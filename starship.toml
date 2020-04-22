@@ -1,19 +1,37 @@
 # For reference:
 #
-# For iTerm, go to Preferences / Profiles / <the appropriate profile> / Text
-# and select the font to use for Non-ASCII Font
-# Choosing Powerline Symbols in Medium 12 works
+# -----------------------------------------------------------------------------
 #
-# Install with:
+# Install new fonts with:
 #
 #   brew tap homebrew/cask-fonts
+#
+# A minimal font that works is then:
+#
 #   brew cask install font-powerline-symbols
 #
-# I'm also trying:
+# but the following also works, and is what I've got on my work laptop at the moment
 #
-#   brew cask install font-awesome-terminal-fonts - this works OK as well
+#   brew cask install font-awesome-terminal-fonts
 #
-#   brew cask install font-hack-nerd-font - hmm, can't see this in iTerm2
+# I might also try the following, in an attempt to have nicer (but only black and white?)
+# logos for things like Python - but after installation it doesn't seem to show up in
+# iTerm2
+#
+#   brew cask install font-hack-nerd-font
+#
+# For iTerm, go to Preferences / Profiles / <the appropriate profile> / Text
+# and select the font to use for Non-ASCII Font
+#
+# Choosing Powerline Symbols in Medium 12 works, or FontAwesome in Regular 12
+# (see below)
+#
+# *Ideally* I'd have a nice coloured Python intertwined snakes logo for Python,
+# and proper coloured icons for the other programming languages - but that seems
+# to be somewhat more difficult to figure out. The current (default) coloured
+# icons are baked into the actual Rust code.
+#
+# -----------------------------------------------------------------------------
 #
 # * The standard terminal colors are: black, red, green, blue, yellow, purple, cyan, white.
 # * Prefix with bright- to get the bright version (e.g. bright-white).
@@ -24,6 +42,37 @@
 #
 # My standard terminal has a "parchment" background colour, so yellows don't
 # work very well.
+#
+# -----------------------------------------------------------------------------
+#
+# The official way to startup starship in fish is to include:
+#
+#    starship init fish | source
+#
+# in my config.fish. I can find out what that will do by doing:
+#
+#    $ starship init fish --print-full-init
+#    function fish_prompt
+#        switch "$fish_key_bindings"
+#            case fish_hybrid_key_bindings fish_vi_key_bindings
+#                set keymap "$fish_bind_mode"
+#            case '*'
+#                set keymap insert
+#        end
+#        set -l exit_code $status
+#        # Account for changes in variable name between v2.7 and v3.0
+#        set -l starship_duration "$CMD_DURATION$cmd_duration"
+#        "/usr/local/bin/starship" prompt --status=$exit_code --keymap=$keymap --cmd-duration=$starship_duration --jobs=(count (jobs -p))
+#    end
+#
+#    # disable virtualenv prompt, it breaks starship
+#    set VIRTUAL_ENV_DISABLE_PROMPT 1
+#
+#    function fish_mode_prompt; end
+#    export STARSHIP_SHELL="fish"
+#
+# although of course the details may change with new versions of starship itself.
+# -----------------------------------------------------------------------------
 
 # Don't print a new line at the start of the prompt
 add_newline = false
@@ -68,8 +117,8 @@ stashed_count.enabled = true
 untracked_count.enabled = true
 
 # Disable the package module, hiding it from the prompt completely
-[package]
-disabled = true
+# [package]
+# disabled = true
 
 [python]
 style = "red"                  # default is bold yellow

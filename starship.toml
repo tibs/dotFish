@@ -14,17 +14,17 @@
 #
 #   brew cask install font-awesome-terminal-fonts
 #
-# I might also try the following, in an attempt to have nicer (but only black and white?)
+# At home I have the following, in an attempt to have nicer (but only black and white?)
 # logos for things like Python - but after installation it doesn't seem to show up in
-# iTerm2
+# iTerm2 at work.
 #
 #   brew cask install font-hack-nerd-font
 #
 # For iTerm, go to Preferences / Profiles / <the appropriate profile> / Text
 # and select the font to use for Non-ASCII Font
 #
-# Choosing Powerline Symbols in Medium 12 works, or FontAwesome in Regular 12
-# (see below)
+# Choosing Powerline Symbols in Medium 12 works, or FontAwesome in Regular 12,
+# or Hack Nerd Font in Bold 12.
 #
 # *Ideally* I'd have a nice coloured Python intertwined snakes logo for Python,
 # and proper coloured icons for the other programming languages - but that seems

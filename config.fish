@@ -39,7 +39,10 @@ end
 set _local_function_dir $HOME/.config/fish/functions/_local
 if test -d $_local_function_dir
     if not contains $fish_function_path $_local_function_dir
-        set --export --global fish_function_path $_local_function_dir $fish_function_path
+        # config.fish is *always* read
+        # `set --export` for fish_function_path appears to not work in fish >= 3.0
+        # set --export --global fish_function_path $_local_function_dir $fish_function_path
+        set --global fish_function_path $_local_function_dir $fish_function_path
     end
 end
 
@@ -109,5 +112,3 @@ end
 if test -x /usr/local/bin/starship
     starship init fish | source
 end
-
-# vim: set tabstop=8 softtabstop=4 shiftwidth=4 expandtab:

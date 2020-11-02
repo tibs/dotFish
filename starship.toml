@@ -107,7 +107,7 @@ show_sync_count = true         # experimentally
 deleted = "d"                  # default is "✘"
 modified = "m"                 # default is "!"
 stashed = "s"                  # default is "$"
-untracked = "u"                # default is "?"
+##untracked = "u"                # default is "?"
 # Do I want these specifics?
 conflicted_count.enabled = true
 deleted_count.enabled = true

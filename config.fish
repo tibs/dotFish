@@ -51,6 +51,9 @@ set --export EDITOR (which vim)
 #set --export EDITOR 'emacsclient --alternate-editor="" -nw'
 #set --export VISUAL 'emacsclient --alternate-editor="" --create-frame emacs'
 
+# Assume we might want doom tools on the PATH
+maybe_prepend_to_path $HOME/.emacs.d/bin
+
 if test -x /usr/local/bin/most
     set --export PAGER /usr/local/bin/most
 end
@@ -112,3 +115,4 @@ end
 if test -x /usr/local/bin/starship
     starship init fish | source
 end
+set -g fish_user_paths "/usr/local/opt/unzip/bin" $fish_user_paths

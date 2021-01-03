@@ -110,9 +110,17 @@ if test -d $HOME/.rbenv
     status --is-interactive; and source (rbenv init -|psub)
 end
 
-# Experimentally, use starship prompt
+# Use starship prompt if it's available
 
 if test -x /usr/local/bin/starship
     starship init fish | source
 end
 set -g fish_user_paths "/usr/local/opt/unzip/bin" $fish_user_paths
+
+# Use pyenv if it's available
+# (using the advise from https://github.com/pyenv/pyenv)
+if test -x $HOME/.pyenv
+    set -Ux PYENV_ROOT $HOME/.pyenv
+    set -Ux fish_user_paths $PYENV_ROOT/bin $fish_user_paths
+    pyenv init - | source
+end

@@ -54,8 +54,13 @@ set --export EDITOR (which vim)
 # Assume we might want doom tools on the PATH
 maybe_prepend_to_path $HOME/.emacs.d/bin
 
-if test -x /usr/local/bin/most
-    set --export PAGER /usr/local/bin/most
+# Actually, I think I'm finding "most" as a pager to be more irritating
+# than not. Let's try "less" for a bit...
+#if test -x /usr/local/bin/most
+#    set --export PAGER /usr/local/bin/most
+#end
+if test -x /usr/local/bin/less
+    set --export PAGER /usr/local/bin/less
 end
 
 # Set the colours that I need to alter to get a good result against my

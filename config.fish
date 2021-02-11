@@ -19,7 +19,7 @@ end
 
 # Use the ruby provided by homebrew, as it's substantially more up-to-date
 # than the default
-set -g fish_user_paths "/usr/local/opt/ruby/bin" $fish_user_paths
+maybe_prepend_to_path /usr/local/opt/ruby/bin
 
 # I expect local/bin to be locally compiled programs
 if test -d $HOME/local/bin
@@ -42,6 +42,14 @@ if test -d $_local_function_dir
         # config.fish is *always* read
         # `set --export` for fish_function_path appears to not work in fish >= 3.0
         # set --export --global fish_function_path $_local_function_dir $fish_function_path
+        # Since this is fundamental to my use of fish, just this once use the
+        # "colloquial"
+        #
+        #  set -U fish_function_path <value>
+        #
+        # mechanism, which saves the setting in ~/.config/fish/fish_variables
+        # and actually sets it for all the current fish instances running on
+        # this computer.
         set --global fish_function_path $_local_function_dir $fish_function_path
     end
 end
@@ -120,12 +128,13 @@ end
 if test -x /usr/local/bin/starship
     starship init fish | source
 end
-set -g fish_user_paths "/usr/local/opt/unzip/bin" $fish_user_paths
+maybe_prepend_to_path /usr/local/opt/unzip/bin
 
 # Use pyenv if it's available
-# (using the advise from https://github.com/pyenv/pyenv)
+# (using the advise from https://github.com/pyenv/pyenv, slightly modified
+# to use my `maybe_prepend_to_path`)
 if test -x $HOME/.pyenv
     set -Ux PYENV_ROOT $HOME/.pyenv
-    set -Ux fish_user_paths $PYENV_ROOT/bin $fish_user_paths
+    maybe_prepend_to_path $PYENV_ROOT/bin
     pyenv init - | source
 end

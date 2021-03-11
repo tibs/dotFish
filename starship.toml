@@ -82,10 +82,9 @@ add_newline = false
 # disabled = true
 
 [character]
-symbol = "$"                   # character before user input - default is ">"
-vicmd_symbol = "N"             # ditto if in vi Normal mode
-style_success = "black"        # default is "bold green"
-style_failure = "bold red"     # this is the default
+success_symbol = "[;](green)"    # character before user input - default is "[>](bold green)"
+error_symbol = "[;](red)"        # character before user input - default is "[>](bold red)"
+vicmd_symbol = "[N](green)"      # ditto if in vi Normal mode - default is "[<](bold green)"
 
 [cmd_duration]
 style = "bold blue"            # default is "bold yellow"

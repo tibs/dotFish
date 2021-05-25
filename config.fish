@@ -135,6 +135,8 @@ maybe_prepend_to_path /usr/local/opt/unzip/bin
 # to use my `maybe_prepend_to_path`)
 if test -x $HOME/.pyenv
     set -Ux PYENV_ROOT $HOME/.pyenv
-    maybe_prepend_to_path $PYENV_ROOT/bin
+    set -U fish_user_paths $PYENV_ROOT/bin $fish_user_paths
+    #maybe_prepend_to_path $PYENV_ROOT/bin
+    status is-login; and pyenv init --path | source
     pyenv init - | source
 end

@@ -35,6 +35,13 @@ if test -d $HOME/.cargo
     maybe_prepend_to_path $HOME/.cargo/bin
 end
 
+# Have we got go?
+# (/usr/local/bin/go is probably a soft link to the actual executable)
+if test -e /usr/local/bin/go
+    set --global GOPATH $HOME/go/bin
+    maybe_prepend_to_path $GOPATH
+end
+
 # Allow defining local-only fish functions in a different directory
 set _local_function_dir $HOME/.config/fish/functions/_local
 if test -d $_local_function_dir

@@ -5,23 +5,34 @@ set computer_name (hostname -s)
 # My bin directory is mostly Python scripts, mostly stored on github
 maybe_prepend_to_path $HOME/bin
 
-# Some things live in /usr/local/sbin, which is not on the PATH by default
-if test -d /usr/local/sbin
-    maybe_append_to_path /usr/local/sbin
+# Homebrew lives in different places on intel and M1 macs
+if test -d /opt/homebrew
+  set BREWBASE /opt/homebrew
+else
+  set BREWBASE /usr/local
+end
+
+if test -d $BREWBASE/bin
+    maybe_append_to_path $BREWBASE/bin
+end
+
+# Some things live in sbin, which is not on the PATH by default
+if test -d $BREWBASE/sbin
+    maybe_append_to_path $BREWBASE/sbin
 end
 
 # If I've done "brew install coreutils" then it installs things on the PATH
 # with 'g' prefixes. To make them available under the normal names it suggests
 # prepending the following to the path:
-if test -d /usr/local/opt/coreutils/libexec/gnubin
-    maybe_prepend_to_path /usr/local/opt/coreutils/libexec/gnubin
+if test -d $BREWBASE/opt/coreutils/libexec/gnubin
+    maybe_prepend_to_path $BREWBASE/opt/coreutils/libexec/gnubin
 end
 
 # Use the ruby provided by homebrew, as it's substantially more up-to-date
 # than the default
-maybe_prepend_to_path /usr/local/opt/ruby/bin
+maybe_prepend_to_path $BREWBASE/opt/ruby/bin
 
-# I expect local/bin to be locally compiled programs
+# I expect ~/local/bin to be locally compiled programs
 if test -d $HOME/local/bin
     maybe_prepend_to_path $HOME/local/bin
     # and those same programs may provide man pages
@@ -36,8 +47,8 @@ if test -d $HOME/.cargo
 end
 
 # Have we got go?
-# (/usr/local/bin/go is probably a soft link to the actual executable)
-if test -e /usr/local/bin/go
+# ($BREWBASE/go is probably a soft link to the actual executable)
+if test -e $BREWBASE/bin/go
     set --global GOPATH $HOME/go/bin
     maybe_prepend_to_path $GOPATH
 end
@@ -71,11 +82,11 @@ maybe_prepend_to_path $HOME/.emacs.d/bin
 
 # Actually, I think I'm finding "most" as a pager to be more irritating
 # than not. Let's try "less" for a bit...
-#if test -x /usr/local/bin/most
-#    set --export PAGER /usr/local/bin/most
+#if test -x $BREWBASE/bin/most
+#    set --export PAGER $BREWBASE/bin/most
 #end
-if test -x /usr/local/bin/less
-    set --export PAGER /usr/local/bin/less
+if test -x $BREWBASE/bin/less
+    set --export PAGER $BREWBASE/bin/less
 end
 
 # Set the colours that I need to alter to get a good result against my
@@ -110,7 +121,7 @@ set -g -x VIM_APP_DIR /Applications/Extras
 #     $ rbenv init -
 #     set -gx PATH '/Users/tonyibbs/.rbenv/shims' $PATH
 #     set -gx RBENV_SHELL fish
-#     source '/usr/local/Cellar/rbenv/1.1.2/libexec/../completions/rbenv.fish'
+#     source $BREWBASE/Cellar/rbenv/1.1.2/libexec/../completions/rbenv.fish
 #     command rbenv rehash 2>/dev/null
 #     function rbenv
 #       set command $argv[1]
@@ -132,10 +143,13 @@ end
 
 # Use starship prompt if it's available
 
-if test -x /usr/local/bin/starship
+if test -x $BREWBASE/bin/starship
     starship init fish | source
 end
-maybe_prepend_to_path /usr/local/opt/unzip/bin
+
+if test -x $BREWBASE/bin/opt/unzip
+    maybe_prepend_to_path $BREWBASE/opt/unzip/bin
+end
 
 # Use pyenv if it's available
 # (using the advise from https://github.com/pyenv/pyenv, slightly modified

@@ -162,6 +162,10 @@ if test -x $HOME/.pyenv
     pyenv init - | source
 end
 
+if test -d $HOME/go
+    maybe_prepend_to_path $HOME/go/bin
+end
+
 # Do I have a (default) github token?
 if test -e $HOME/.github_token
     read -g -x GITHUB_TOKEN < $HOME/.github_token

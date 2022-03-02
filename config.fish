@@ -138,7 +138,7 @@ set -g -x VIM_APP_DIR /Applications/Extras
 # NB for bash it wants me to do ``echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile``
 #
 if test -d $HOME/.rbenv
-    status --is-interactive; and source (rbenv init -|psub)
+    status --is-interactive; and rbenv init - fish | source
 end
 
 # Use starship prompt if it's available

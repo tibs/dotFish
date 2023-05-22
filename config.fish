@@ -13,12 +13,12 @@ else
 end
 
 if test -d $BREWBASE/bin
-    maybe_append_to_path $BREWBASE/bin
+    maybe_prepend_to_path $BREWBASE/bin
 end
 
 # Some things live in sbin, which is not on the PATH by default
 if test -d $BREWBASE/sbin
-    maybe_append_to_path $BREWBASE/sbin
+    maybe_prepend_to_path $BREWBASE/sbin
 end
 
 # If I've done "brew install coreutils" then it installs things on the PATH

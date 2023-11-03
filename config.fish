@@ -46,6 +46,11 @@ if test -d $HOME/.cargo
     maybe_prepend_to_path $HOME/.cargo/bin
 end
 
+# Have we got a homebrew curl?
+if test -x $BREWBASE/opt/curl/bin/curl
+    maybe_prepend_to_path $BREWBASE/opt/curl/bin
+end
+
 # Have we got go?
 # ($BREWBASE/go is probably a soft link to the actual executable)
 if test -e $BREWBASE/bin/go

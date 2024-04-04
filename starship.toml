@@ -122,3 +122,9 @@ disabled = true
 
 [python]
 style = "red"                  # default is bold yellow
+
+# In Mac OS Sonoma, if I don't want it to say
+#   [WARN] - (starship::modules::battery): Unable to access battery information: AppleRawMaxCapacity
+# then I need to disable battery checking
+[battery]
+disabled = true

@@ -83,7 +83,9 @@ set --export EDITOR (which vim)
 #set --export VISUAL 'emacsclient --alternate-editor="" --create-frame emacs'
 
 # Assume we might want doom tools on the PATH
+# (whichever Emacs init directory is in use)
 maybe_prepend_to_path $HOME/.emacs.d/bin
+maybe_prepend_to_path $HOME/.config/emacs/bin
 
 # Actually, I think I'm finding "most" as a pager to be more irritating
 # than not. Let's try "less" for a bit...

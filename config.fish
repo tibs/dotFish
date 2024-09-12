@@ -58,6 +58,14 @@ if test -e $BREWBASE/bin/go
     maybe_prepend_to_path $GOPATH
 end
 
+# What about Common Lisp things?
+if test -d $HOME/.qlot
+    maybe_prepend_to_path $HOME/.qlot/bin
+end
+if test -d $HOME/common-lisp/lem
+    maybe_prepend_to_path $HOME/common-lisp/lem
+end
+
 # Allow defining local-only fish functions in a different directory
 set _local_function_dir $HOME/.config/fish/functions/_local
 if test -d $_local_function_dir

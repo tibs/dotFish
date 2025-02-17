@@ -166,6 +166,10 @@ if test -x $BREWBASE/bin/opt/unzip
     maybe_prepend_to_path $BREWBASE/opt/unzip/bin
 end
 
+if test -x $BREWBASE/opt/openjdk/bin/java
+    maybe_prepend_to_path $BREWBASE/opt/openjdk/bin
+end
+
 # Use pyenv if it's available
 # (using the advise from https://github.com/pyenv/pyenv, slightly modified
 # to use my `maybe_prepend_to_path`)

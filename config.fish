@@ -181,6 +181,9 @@ if test -x $HOME/.pyenv
     pyenv init - | source
 end
 
+# Don't alow `pip` outside a virtualenv
+set -g -x PIP_REQUIRE_VIRTUALENV true
+
 if test -d $HOME/go
     maybe_prepend_to_path $HOME/go/bin
 end

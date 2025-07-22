@@ -17,3 +17,6 @@ fundle
 
 # The variables should be set by my configuration
 fish_variables
+
+# uv seems to create this for me
+conf.d/
